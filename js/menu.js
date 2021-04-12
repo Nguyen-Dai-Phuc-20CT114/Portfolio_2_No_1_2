@@ -56,13 +56,13 @@ function lonLen(){
         var y = document.getElementById("menu-nen");
 
         y.style.setProperty("--width_menu_nen", "480px");
-        y.style.setProperty("--height_menu_nen", "260px");
-        y.style.bottom = 0 + 'px';
+        y.style.setProperty("--height_menu_nen", "270px");
+        y.style.bottom = 15 + 'px';
         
 
         /* Kéo thanh menu-box lên */
         var menu_box = document.querySelectorAll('.menu-box');
-        menu_box[0].style.setProperty('--menu_box_top', '15px');
+        menu_box[0].style.setProperty('--menu_box_top', '0px');
 
         /* Đẩy các ô span ra xung quanh */
         var menu_box_span = document.querySelectorAll(".menu-box span");

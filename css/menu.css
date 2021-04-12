@@ -236,10 +236,6 @@
 
     cursor: pointer;
 }
-.nen:hover{
-    animation-play-state: paused;
-    animation: top_bottom paused;
-}
 
 
 /* hiệu ứng quay về phía người xem cho nen */
