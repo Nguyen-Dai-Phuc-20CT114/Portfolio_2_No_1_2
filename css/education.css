@@ -1,0 +1,15 @@
+#education {
+    padding:0;
+    margin:0;
+    overflow:hidden;
+	height: 100vh;
+}
+canvas {
+    padding:0;
+    margin:0;
+}
+div.btnbg {
+    position:fixed;
+    left:0;
+    top:0;
+}

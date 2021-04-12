@@ -1,0 +1,921 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#menu{
+    position: absolute;
+    top: 70vh;
+    left: calc(50% - 35px);
+}
+
+
+/* Phần menu-current */
+/**************************************************************************/
+/**************************************************************************/
+/**************************************************************************/
+
+
+/*định dạng nền cho menu current */
+/**************************************************************************/
+#menu-nen{
+    --width_menu_nen: 70px;    /* Khi hover la 500px */
+    --height_menu_nen: 70px;   /* Khi hover la 280px */
+
+    width: var(--width_menu_nen);
+    height: var(--height_menu_nen);
+
+    border-radius: 50%;
+
+    position: fixed;
+    bottom: 20px;              /* Khi hover la 0px */
+    left: calc(50% - var(--width_menu_nen)/2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-duration: 1000ms;
+}
+
+
+/* định dạng hình dạng, vị trí menu-current trước khi hover */
+/**************************************************************************/
+
+/* Phần chức hình ảnh */
+#menu-current{
+    width: 70px;
+    height: 70px;
+
+    background: radial-gradient(circle at 40px 40px, #1B2735 0%, #090A0F 100%);
+    opacity: 0.2;
+
+    border-radius: 100%;
+    border: 2px solid rgb(245, 245, 198);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition-duration: 500ms;
+
+    transform-style: preserve-3d;
+    transform: translateY(0px);
+}
+
+
+
+/* định dạng hình ảnh menu-home */
+#menu-current img{
+    width: 50%;
+    height: 50%;
+    transform: translateX(-2px);
+}
+
+
+
+/* định dạng hình dạng, vị trí menu-current khi hover */
+/**************************************************************************/
+
+/* #menu-current:hover{
+    width: 100px;
+    height: 100px;
+
+    opacity: 1;
+
+
+    bottom: 15vh;
+    left: 44%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;
+    border: 2px solid rgb(255, 255, 128);
+} */
+
+
+
+
+
+
+
+
+
+/* Phần menu-box */
+/**************************************************************************/
+/**************************************************************************/
+/**************************************************************************/
+
+
+/* định dạng menu-box */
+/**************************************************************************/
+.menu-box{
+    --menu_box_top: 100px;
+
+    width: 70px;
+    height: 70px;
+
+    position: relative;
+    top: var(--menu_box_top);
+    /* display: none; */
+
+    transition: 800ms;
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+}
+
+/* hiệu ứng menu-box: box-3d, box hình elip */
+/************************************************************************/
+@keyframes animate{
+    0%{
+        transform: perspective(1000px) rotateY(0deg) rotateX(-30deg) rotateZ(0deg);
+    }
+    12.5%{
+        transform: perspective(1000px) rotateY(45deg) rotateX(-20deg) rotateZ(-20deg);
+    }
+    25%{
+        transform: perspective(1000px) rotateY(90deg) rotateX(0deg) rotateZ(-30deg);
+    }
+    37.5%{
+        transform: perspective(1000px) rotateY(135deg) rotateX(20deg) rotateZ(-20deg);
+
+    }
+    50%{
+        transform: perspective(1000px) rotateY(180deg) rotateX(30deg) rotateZ(0deg);
+
+    }
+    62.5%{
+        transform: perspective(1000px) rotateY(225deg) rotateX(20deg) rotateZ(20deg);
+
+    }
+    75%{
+        transform: perspective(1000px) rotateY(270deg) rotateX(0deg) rotateZ(30deg);
+
+    }
+    87.5%{
+        transform: perspective(1000px) rotateY(315deg) rotateX(-20deg) rotateZ(20deg);
+
+    }
+    100%{
+        transform: perspective(1000px) rotateY(360deg) rotateX(-30deg) rotateZ(0deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+ /* Phần menu-box span */
+/**************************************************************************/
+/**************************************************************************/
+/**************************************************************************/
+    
+    
+/* định dạng menu-box span */
+/**************************************************************************/
+.menu-box span{
+    --translate_Z: 0px;
+
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    top: 0px;
+    left: 0;
+    
+    transition: 800ms;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--translate_Z));  
+}
+
+
+
+
+
+
+
+
+
+/* Phần menu-box span .nen */
+/**************************************************************************/
+/**************************************************************************/
+/**************************************************************************/
+   
+   
+/* định dạng menu-box span .nen*/
+/**************************************************************************/
+.menu-box span .nen{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 100%;
+    border-radius: 100%;
+    border-top: 5px solid red;
+    border-right: 5px solid green;
+    border-bottom: 5px solid yellow;
+    border-left: 5px solid blue;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: 800ms;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    cursor: pointer;
+}
+.nen:hover{
+    animation-play-state: paused;
+    animation: top_bottom paused;
+}
+
+
+/* hiệu ứng quay về phía người xem cho nen */
+@keyframes top_bottom{
+    0%{
+        transform: 
+            perspective(0px)
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 0 * 45deg))
+            /* rotateX(var(--goc1_dau))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1))  */
+            rotateZ(0deg);
+    }
+    12.5%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 1 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(19.13deg)
+            /* rotateX(var(--gocX)) */
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateX(0deg);
+    }
+    25%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 2 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    37.5%{
+        transform:
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 3 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(34.72deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    50%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 4 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    62.5%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 5 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(34.72deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    75%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 6 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    87.5%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 7 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(19.13deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    100%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 8 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+}
+
+@keyframes top_left{
+    0%{
+        transform:  
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(calc(var(--i)*45deg - 2*45deg))
+        /* rotateX(var(--goc1_dau))  */
+        rotateX(30deg)
+        /* rotateX(var(--gocX)) */
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateX(0deg);
+    }
+    12.5%{
+        transform:
+        perspective(0px)
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(calc(var(--i)*45deg - 3*45deg))
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+        rotateX(30.83deg)
+        /* rotateZ(calc(var(--goc2) * 1))  */
+        rotateZ(0deg);
+    }
+    25%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(calc(var(--i)*45deg - 4*45deg))
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    37.5%{
+        transform:
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(calc(var(--i)*45deg - 5*45deg))
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+        rotateX(22.73deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    50%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(calc(var(--i)*45deg - 6*45deg))
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    62.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(calc(var(--i) * 45deg - 7 * 45deg))
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    75%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(calc(var(--i) * 45deg - 8 * 45deg))
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    87.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(calc(var(--i) * 45deg - 9 * 45deg))
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+        rotateX(25.6deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    100%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(calc(var(--i) * 45deg - 10 * 45deg))
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+}
+
+@keyframes left{
+    0%{
+        transform:  
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(90deg)
+        /* rotateX(var(--goc1_dau))  */
+        rotateX(30deg)
+        /* rotateX(var(--gocX)) */
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateX(0deg);
+    }
+    12.5%{
+        transform:
+        perspective(0px)
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(45deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*1))  */
+        rotateX(21.87deg)
+        /* rotateZ(calc(var(--goc2) * 1))  */
+        rotateZ(0deg);
+    }
+    25%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(0deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*2))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    37.5%{
+        transform:
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-45deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*3))  */
+        rotateX(21.87deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    50%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-90deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*4))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    62.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-135deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*5))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    75%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-180deg)
+        /* rotateX(calc(/var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*6))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    87.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-225deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*7))  */
+        rotateX(25.6deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    100%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-270deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(29.65deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+}
+
+@keyframes bottom_left{
+    0%{
+        transform:  
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(45deg)
+        /* rotateX(var(--goc1_dau))  */
+        rotateX(30deg)
+        /* rotateX(var(--gocX)) */
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateX(0deg);
+    }
+    12.5%{
+        transform:
+        perspective(0px)
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(0deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*1))  */
+        rotateX(22.73deg)
+        /* rotateZ(calc(var(--goc2) * 1))  */
+        rotateZ(0deg);
+    }
+    25%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-45deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*2))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    37.5%{
+        transform:
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-90deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*3))  */
+        rotateX(22.73deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    50%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-135deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*4))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    62.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-180deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*5))  */
+        rotateX(25.6deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    75%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-225deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*6))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    87.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-270)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*7))  */
+        rotateX(30.83deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    100%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-315deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+}
+
+@keyframes bottom_right{
+    0%{
+        transform:  
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-45deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*2))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    12.5%{
+        transform:
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-90deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*3))  */
+        rotateX(30.83deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    25%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-135deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*4))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    37.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-180deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*5))  */
+        rotateX(25.6deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    50%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-225deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*6))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    62.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-270)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*7))  */
+        rotateX(30.83deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    75%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-315deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    87.5%{
+        transform:
+        perspective(0px)
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-360deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*1))  */
+        rotateX(22.73deg)
+        /* rotateZ(calc(var(--goc2) * 1))  */
+        rotateZ(0deg);
+    }
+    100%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-405deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+}
+
+@keyframes right{
+    0%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-90deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*4))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    12.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-135deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*5))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    25%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-180deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*6))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    37.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-225deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*7))  */
+        rotateX(26deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    50%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-270deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    62.5%{
+        transform:
+        perspective(0px)
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-315deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*1))  */
+        rotateX(21.87deg)
+        /* rotateZ(calc(var(--goc2) * 1))  */
+        rotateZ(0deg);
+    }
+    75%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-360deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    87.5%{
+        transform:
+        perspective(0px)
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-405deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*1))  */
+        rotateX(21.87deg)
+        /* rotateZ(calc(var(--goc2) * 1))  */
+        rotateZ(0deg);
+    }
+    100%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-450deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*4))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+}
+
+@keyframes top_right{
+    0%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-135deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*4))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    12.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-180deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*5))  */
+        rotateX(25.6deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    25%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-225deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*6))  */
+        rotateX(30deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    37.5%{
+        transform: 
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-270)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*7))  */
+        rotateX(30.83deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    50%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-315deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    62.5%{
+        transform:
+        perspective(0px)
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-360deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*1))  */
+        rotateX(22.73deg)
+        /* rotateZ(calc(var(--goc2) * 1))  */
+        rotateZ(0deg);
+    }
+    75%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-405deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+    87.5%{
+        transform:
+        perspective(0px) 
+        /* rotateY(calc(var(--goc3) * 1))  */
+        rotateY(-450deg)
+        /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*3))  */
+        rotateX(30.83deg)
+        /* rotateZ(calc(var(--goc2) * 1)); */
+        rotateZ(0deg);
+    }
+    100%{
+        transform: 
+            perspective(0px) 
+            /* rotateY(calc(var(--goc3) * 1))  */
+            rotateY(-495deg)
+            /* rotateX(calc(var(--goc1_dau) + (var(--goc1_cuoi) - var(--goc1_dau))/8*8))  */
+            rotateX(30deg)
+            /* rotateZ(calc(var(--goc2) * 1)); */
+            rotateZ(0deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Phần menu-box span .nen img*/
+/**************************************************************************/
+/**************************************************************************/
+/**************************************************************************/
+.menu-box span img{
+    width: 50%;
+    height: 50%;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+
+    /* object-fit: cover; */
+}
