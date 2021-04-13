@@ -217,11 +217,7 @@
     height: 100%;
 
     border-radius: 100%;
-    border-radius: 100%;
-    border-top: 5px solid red;
-    border-right: 5px solid green;
-    border-bottom: 5px solid yellow;
-    border-left: 5px solid blue;
+    border: 2px solid rgb(245, 245, 198);
 
     display: flex;
     justify-content: center;

@@ -25,6 +25,8 @@ x[2].style.animation = "top_right 20s linear infinite";
 
 
 
+
+
 /* Phần cho hiệu ứng hover của menu-current */
 /****************************************************** */
 /****************************************************** */
@@ -33,8 +35,6 @@ x[2].style.animation = "top_right 20s linear infinite";
 /* Phần khai báo biến */
 /****************************************************** */
 var isBig = false
-
-
 
 
 /* Hàm ngăn chặn giặt lag khi hover */
@@ -125,4 +125,48 @@ function nhoLai(){
 
         isBig = false;
     }
+}
+
+
+
+
+
+
+
+
+/* Phần di chuyển giữa các trang */
+/****************************************************** */
+/****************************************************** */
+/****************************************************** */
+
+function goToHome(){
+    location.href = "../home.html";
+}
+
+function goToAbout(){
+    location.href = "../about.html";
+}
+
+function goToService(){
+    location.href = "../service.html";
+}
+
+function goToSkills(){
+    location.href = "../skills.html";
+}
+
+function goToEducation(){
+    location.href = "../education.html";
+}
+
+function goToExperience(){
+    location.href = "../experience.html";
+}
+
+function goToWork(){
+    location.href = "../work.html";
+}
+
+function goToContact(){
+    location.href = "../contact.html";
 }
