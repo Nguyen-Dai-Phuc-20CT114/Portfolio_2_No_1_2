@@ -5,7 +5,7 @@
 }
 
 #menu{
-    position: absolute;
+    position: fixed;
     top: 70vh;
     left: calc(50% - 35px);
 }
