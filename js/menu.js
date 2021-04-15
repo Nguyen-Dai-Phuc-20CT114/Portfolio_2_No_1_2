@@ -48,16 +48,15 @@ function lonLen(){
         x.style.width = 100 + 'px';
         x.style.height =  100 + 'px';
         x.style.opacity =  1;
-        x.style.bottom = 15 + 'vh';
         x.style.border = "2px solid rgb(255, 255, 128)";
 
 
         /* Tăng kích thước của vùng hover */
         var y = document.getElementById("menu-nen");
 
-        y.style.setProperty("--width_menu_nen", "480px");
-        y.style.setProperty("--height_menu_nen", "270px");
-        y.style.bottom = 15 + 'px';
+        y.style.setProperty("--width_menu_nen", "510px");
+        y.style.setProperty("--height_menu_nen", "280px");
+        y.style.bottom = 0 + 'px';
         
 
         /* Kéo thanh menu-box lên */
